@@ -1,0 +1,12 @@
+{
+    "proyectName": "test-market-place-api",
+    "rootPath": "/api",
+    "appPort": 8080,
+    "meli": {
+        "baseUrl": "https://api.mercadolibre.com"
+    },
+    "author": {
+        "name": "José Miguel",
+        "lastname": "Morillo C."
+    }
+}

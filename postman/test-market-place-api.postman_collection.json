@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "06ce2cc6-89ff-4395-ba5c-5674a22501ad",
+		"name": "test-market-place-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "healthCheck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/health",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/items?q=pantalla iphone",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"items"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "pantalla iphone"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/items/MLA816919801",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"items",
+						"MLA816919801"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
