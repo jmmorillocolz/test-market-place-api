@@ -60,18 +60,19 @@ export class SearchController {
      */
      private static async formattedItemsFromSearch(results: IResultsMeli[]): Promise<IItem[]> {
         return results.map((result) => {
-            const { id, title, thumbnail: picture, condition, price: amount, shipping: { free_shipping }, currency_id: currency }  = result;
+            const { id, title, thumbnail: picture, condition, price: amount, shipping: { free_shipping }, currency_id: currency, address: { state_name } }  = result;
             const item: IItem = {
                 id,
                 title,
                 price: {
                     currency,
                     amount: Math.floor(amount) === amount ? amount : Number(amount.toString().split('.')[0]),
-                    decimals: Math.floor(amount) === amount ? 0 : Number(amount.toString().split('.')[1]),
+                    decimals: Math.floor(amount) === amount ? '00' : amount.toString().split('.')[1],
                 },
                 picture,
                 condition,
                 free_shipping,
+                address: state_name
             };
             return item;
         });
@@ -113,7 +114,7 @@ export class SearchController {
             price: {
                 currency,
                 amount: Math.floor(amount) === amount ? amount : Number(amount.toString().split('.')[0]),
-                decimals: Math.floor(amount) === amount ? 0 : Number(amount.toString().split('.')[1]),
+                decimals: Math.floor(amount) === amount ? '00': amount.toString().split('.')[1],
             },
             picture: pic.url,
             condition,
